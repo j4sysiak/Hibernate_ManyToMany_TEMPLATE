@@ -11,7 +11,7 @@
 
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- Assume test is the database name -->
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/Hibernate_OneToMany_TEMPLATE?useSSL=false&amp;serverTimezone=UTC</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/Hibernate_ManyToMany_TEMPLATE?useSSL=false&amp;serverTimezone=UTC</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">Warszawa5584</property>
 
@@ -21,13 +21,13 @@
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
 
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
 		<!-- Set the current session context -->
       <property name="current_session_context_class">thread</property>
       
-<!--       <mapping class="pl.jaceksysiak.entity.Employee"/> -->
-<!--       <mapping class="pl.jaceksysiak.entity.Address"/> -->
+<!--       <mapping class="pl.jaceksysiak.entity.Student"/> -->
+<!--       <mapping class="pl.jaceksysiak.entity.Course"/> -->
       
 	</session-factory>
 </hibernate-configuration>

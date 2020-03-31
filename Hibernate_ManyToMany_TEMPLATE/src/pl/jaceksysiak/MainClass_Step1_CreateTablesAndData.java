@@ -4,34 +4,41 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import pl.jaceksysiak.entity.Address;
-import pl.jaceksysiak.entity.Employee;
+import pl.jaceksysiak.entity.Course;
+import pl.jaceksysiak.entity.Student;
 
-public class MainClass_DeleteEmployeeData {
+public class MainClass_Step1_CreateTablesAndData {
 	
 	public static void main(String[] args) {
 
 		// create session factory
 		SessionFactory factory = new Configuration()
 								.configure("hibernate.cfg.xml")
-								.addAnnotatedClass(Employee.class)
-								.addAnnotatedClass(Address.class)
+								.addAnnotatedClass(Student.class)
+								.addAnnotatedClass(Course.class)
 								.buildSessionFactory();
 		
 		// create session
 		Session session = factory.getCurrentSession();
 		
 		try {	
+		//-----------Student	
+			Student tmpStudent=new Student("Jack", "Sysiak", "jacek@wp.pl");
+	
+		//----------- Course
+			Course tmpCourse1 = new Course("Hibernate technics for idiots");
+			
+			Course tmpCourse2 = new Course();
+			tmpCourse2.setTitle("Managerka dla wymagaj¹cych");
+			
 			// start a transaction
 			session.beginTransaction();
 			
-			//get Employee from DB
-			int tmpId = 1;
-			Employee tmpEmployee = session.get(Employee.class, tmpId);
+			// save the courses
+			session.save(tmpStudent);
+			session.save(tmpCourse1);
+			session.save(tmpCourse2);
 			
-			System.out.println("This employee to delete: " + tmpEmployee);
-			session.delete(tmpEmployee);
-		 
 			// commit transaction
 			session.getTransaction().commit();
 		}
