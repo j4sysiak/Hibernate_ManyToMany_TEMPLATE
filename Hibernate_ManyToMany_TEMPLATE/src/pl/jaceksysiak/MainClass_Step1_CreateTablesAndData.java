@@ -22,21 +22,25 @@ public class MainClass_Step1_CreateTablesAndData {
 		Session session = factory.getCurrentSession();
 		
 		try {	
+			// start a transaction
+			session.beginTransaction();
+			
+			//----------- Create a Course
+			Course tmpCourse = new Course("Hibernate technics for idiots");
+			
+			// save the course
+			session.save(tmpCourse);
+			
+			
 		//-----------Create Student	
 			Student tmpStudent1=new Student("Jack", "Sysiak", "jacek@wp.pl");
 			Student tmpStudent2=new Student("Mark", "Knophler", "ajaja@wp.pl");
-	
-		//----------- Create Course
-			Course tmpCourse = new Course("Hibernate technics for idiots");
 			
 		// Add Student to the Course
 			tmpCourse.addStudent(tmpStudent1);
 			tmpCourse.addStudent(tmpStudent2);
 			
-			// start a transaction
-			session.beginTransaction();
-			
-			// save the courses
+			// save students
 			session.save(tmpStudent1);
 			session.save(tmpStudent2);
 			
