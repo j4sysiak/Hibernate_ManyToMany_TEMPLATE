@@ -26,19 +26,21 @@ public class MainClass_Step1_CreateTablesAndData {
 			session.beginTransaction();
 			
 			//----------- Create a Course
-			Course tmpCourse = new Course("Hibernate technics for idiots");
+			Course tmpCourse1 = new Course("Hibernate technics for idiots");
+			Course tmpCourse2 = new Course("Management for me");
 			
 			// save the course
-			session.save(tmpCourse);
-			
+			session.save(tmpCourse1);
+			session.save(tmpCourse2);
 			
 		//-----------Create Student	
 			Student tmpStudent1=new Student("Jack", "Sysiak", "jacek@wp.pl");
 			Student tmpStudent2=new Student("Mark", "Knophler", "ajaja@wp.pl");
 			
 		// Add Student to the Course
-			tmpCourse.addStudent(tmpStudent1);
-			tmpCourse.addStudent(tmpStudent2);
+			tmpCourse1.addStudent(tmpStudent1);
+			tmpCourse2.addStudent(tmpStudent1);
+			tmpCourse1.addStudent(tmpStudent2);
 			
 			// save students
 			session.save(tmpStudent1);
