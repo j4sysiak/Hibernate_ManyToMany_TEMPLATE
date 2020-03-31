@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import pl.jaceksysiak.entity.Course;
 import pl.jaceksysiak.entity.Student;
 
-public class MainClass_Step1_CreateTablesAndData {
+public class MainClass_CreateTablesAndData {
 	
 	public static void main(String[] args) {
 
